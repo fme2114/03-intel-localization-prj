@@ -186,7 +186,7 @@ img[src="2020.png"] {
 .container .row .col-lg-4 h2 {
   margin-top: 0px;    /* Decreased space above the heading */
   margin-bottom: 15px; /* Increased space below the heading */
-  color: #78e6ff; /* Bright blue color for the headings */
+  color: #7de7ff; /* Bright blue color for the headings */
   font-weight: 700; /* Make the heading extra bold for emphasis */
 }
 
@@ -274,30 +274,23 @@ header {
   color: white;
 }
 
-/* Responsive: Reduce padding on small screens */
-@media (max-width: 600px) {
-  .container .row .col-lg-4 {
-    padding: 14px 6px;
-  }
-}
-
-/* Style the footer section and subscription form */
-footer {
-  background: linear-gradient(135deg, #4e93d9, #cae2f5); /* Dark blue background */
+/* Style the subscription section and form */
+.subscription-section {
+  background: linear-gradient(135deg, #4e93d9, #cae2f5); /* Blue gradient background */
   color: white;              /* White text */
   padding: 32px 0 24px 0;    /* Space above and below */
   text-align: center;        /* Center all content */
-  margin-top: 0px;          /* Space above the footer */
+  margin-top: 0px;           /* No extra space above */
 }
 
-footer h2 {
+.subscription-section h2 {
   font-size: 28px;
   margin-bottom: 18px;
   color: #003366; /* Dark blue color for the heading */
 }
 
 /* Style the subscription form */
-footer form {
+.subscription-section form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -306,7 +299,7 @@ footer form {
   margin-top: 10px;
 }
 
-footer input[type="email"] {
+.subscription-section input[type="email"] {
   padding: 10px 14px;
   border-radius: 5px;
   border: none;
@@ -315,7 +308,7 @@ footer input[type="email"] {
   max-width: 90vw;
 }
 
-footer button[type="submit"] {
+.subscription-section button[type="submit"] {
   padding: 10px 22px;
   border-radius: 5px;
   border: none;
@@ -327,8 +320,21 @@ footer button[type="submit"] {
   transition: background 0.2s;
 }
 
-footer button[type="submit"]:hover {
+.subscription-section button[type="submit"]:hover {
   background-color: #1976d2; /* Darker blue on hover */
   color: white;
+}
+
+/* Simple footer styling for the bottom of the page */
+.site-footer {
+  background: #fff;            /* White background */
+  color: #003366;              /* Dark blue text for contrast */
+  text-align: center;          /* Center the text */
+  padding: 4px 0 4px 0;        /* Thinner: less space above and below */
+  font-size: 15px;             /* Slightly smaller text */
+  margin-top: 0;               /* No extra space above */
+  margin-bottom: 0;
+  border-top: 1px solid #e0e6ef; /* Light border for separation */
+  box-shadow: none;            /* No shadow */
 }
 
