@@ -87,7 +87,9 @@ img[src="2020.png"] {
   max-width: calc(4 * 320px + 3 * 16px); /* Show 4 cards + 3 gaps at a time */
   box-sizing: border-box;
   margin: 0 auto;                        /* Center the container */
-  padding-bottom: 16px;                  /* Space for scrollbar if needed */
+  padding-bottom: 10px;                  /* Space for scrollbar if needed */
+  padding-left: 4px;
+  padding-right: 4px; /* Small side padding for breathing room */
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -156,11 +158,37 @@ img[src="2020.png"] {
   text-align: center; /* Centers the text horizontally */
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 21px;
-  margin-top: 15px;
+  margin-top: 5px;
   color: #003366; /* Dark blue color for the text */
 }
 
 
+
+/* Shared background for the 3-column content section */
+.shared-bg-section {
+  background-color: #003366; /* All columns share this dark blue background */
+  padding-top: 40px;         /* Space above the section */
+  padding-bottom: 0;         /* No space below the section, so it touches the footer */
+  margin-bottom: 0;          /* No margin below the section */
+}
+
+/* Remove card-like styles from the columns so they blend into the section */
+.container .row .col-lg-4 {
+  background: none;      /* No background on individual columns */
+  color: white;          /* White text for contrast */
+  text-align: center;    /* Center text in columns */
+  padding: 24px 32px;    /* Increased left and right padding for more space */
+  border-radius: 0;      /* No rounded corners */
+  box-shadow: none;      /* No shadow */
+}
+
+/* Style the h2 headings in the 3-column section for better spacing */
+.container .row .col-lg-4 h2 {
+  margin-top: 0px;    /* Decreased space above the heading */
+  margin-bottom: 15px; /* Increased space below the heading */
+  color: #78e6ff; /* Bright blue color for the headings */
+  font-weight: 700; /* Make the heading extra bold for emphasis */
+}
 
 /* Responsive: Stack cards vertically on small screens */
 @media (max-width: 600px) {
@@ -194,8 +222,9 @@ img[src="2020.png"] {
     max-width: 100%;
     overflow-x: visible;
     margin: 0 auto;
-    padding: 0 4px; /* Small side padding for breathing room */
+    padding: 0 4px; /* Small side padding for breathing room */ 
   }
+}
   .card {
     width: 100%;
     max-width: 350px;
@@ -215,24 +244,91 @@ img[src="2020.png"] {
     margin-bottom: 8px;   /* Less space below text */
   }
 
-  .card h3 {
-    margin-top: 0px; /* No space above the h3 heading */
-    margin-bottom: 10px;
-  }
-  header {
-    width: 100%;          /* Header takes full width */
-    box-sizing: border-box;
-    padding-left: 4px;
-    padding-right: 4px;
+.card h3 {
+  margin-top: 0px; /* No space above the h3 heading */
+  margin-bottom: 10px;
+}
+header {
+  width: 100%;          /* Header takes full width */
+  box-sizing: border-box;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+/* Style the Learn More button (optional, does not affect grid) */
+.container .row .col-lg-4 a {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 20px;
+  background-color: #25d0f6; /* Bright blue button */
+  color: #003366;            /* Dark blue text */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.container .row .col-lg-4 a:hover {
+  background-color: #1976d2; /* Slightly darker blue on hover */
+  color: white;
+}
+
+/* Responsive: Reduce padding on small screens */
+@media (max-width: 600px) {
+  .container .row .col-lg-4 {
+    padding: 14px 6px;
   }
 }
-    margin-top: 0px; /* No space above the h3 heading */
-    margin-bottom: 10px;
-  }
-  header {
-    width: 100%;          /* Header takes full width */
-    box-sizing: border-box;
-    padding-left: 4px;
-    padding-right: 4px;
-  }
+
+/* Style the footer section and subscription form */
+footer {
+  background: linear-gradient(135deg, #4e93d9, #cae2f5); /* Dark blue background */
+  color: white;              /* White text */
+  padding: 32px 0 24px 0;    /* Space above and below */
+  text-align: center;        /* Center all content */
+  margin-top: 0px;          /* Space above the footer */
 }
+
+footer h2 {
+  font-size: 28px;
+  margin-bottom: 18px;
+  color: #003366; /* Dark blue color for the heading */
+}
+
+/* Style the subscription form */
+footer form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px; /* Space between input and button */
+  flex-wrap: wrap; /* Stack on small screens */
+  margin-top: 10px;
+}
+
+footer input[type="email"] {
+  padding: 10px 14px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  width: 220px;
+  max-width: 90vw;
+}
+
+footer button[type="submit"] {
+  padding: 10px 22px;
+  border-radius: 5px;
+  border: none;
+  background-color: #25d0f6; /* Bright blue */
+  color: #003366;            /* Dark blue text */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+footer button[type="submit"]:hover {
+  background-color: #1976d2; /* Darker blue on hover */
+  color: white;
+}
+
