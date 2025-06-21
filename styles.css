@@ -1,0 +1,78 @@
+/* Basic CSS Reset: removes default margin and padding from all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove default margin from the body so header touches the edges */
+body {
+  margin: 0; /* Removes space around the whole page */
+  line-height: 1.6; /* Adds more space between lines of text */
+}
+
+/* Make the Intel logo smaller and center it */
+/* Selects any element with the class "logo" */
+.logo {
+  width: 120px;      /* Sets the logo width to 120 pixels */
+  display: block;    /* Makes the image a block element */
+  margin: 0 auto;    /* Centers the image horizontally */
+}
+
+/* Make the header look like a hero section */
+header {
+  background-color: #003366; /* Dark blue background */
+  color: white;              /* White text for contrast */
+  padding: 40px 0;           /* Space above and below content */
+  width: 100%;                /* Makes header full width */
+  box-sizing: border-box;     /* Ensures padding is included in width */
+  line-height: 1.8; /* Adds more space between lines of text in the header */
+}
+
+/* Make only the <p> text inside the header smaller */
+header p {
+  font-size: 14px; /* Sets the paragraph text in the header to 14 pixels */
+  border: 1px solid white; /* Adds a thin white border */
+  padding: 8px;            /* Adds space between the text and the border */
+  border-radius: 4px;      /* Rounds the corners a little (optional) */
+}
+
+/* Limit the width of each card so images can't stretch too wide */
+.card {
+  max-width: 250px;    /* Sets a maximum width for each card */
+  width: 100%;         /* Card uses full width up to 250px */
+  margin: 16px auto;   /* Centers the card and adds space around it */
+}
+
+/* Make all card images exactly 250px wide and 100px tall */
+.card img {
+  width: 250px;      /* Sets the image width to 250 pixels */
+  height: 100px;     /* Sets the image height to 100 pixels */
+  object-fit: cover; /* Crops the image to fit the box if needed */
+  display: block;    /* Removes small gaps below the image */
+  margin: 0 auto;    /* Centers the image in the card */
+}
+
+/* Force the 2006.png image to be 250px wide */
+img[src="2006.png"] {
+  width: 250px !important;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Force the 2020.png image to be 250px wide */
+img[src="2020.png"] {
+  width: 250px !important;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Arrange all cards in a row (horizontally) */
+.cards-container {
+  display: flex;           /* Places child cards in a row */
+  gap: 16px;               /* Adds space between each card */
+  justify-content: center; /* Centers the row of cards */
+  align-items: flex-start;  /* Aligns cards to the top */
+}

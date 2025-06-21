@@ -1,0 +1,238 @@
+/* Basic CSS Reset: removes default margin and padding from all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal overflow on the whole page */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Make the Intel logo smaller and center it */
+/* Selects any element with the class "logo" */
+.logo {
+  width: 90px;      /* Sets the logo width to 120 pixels */
+  display: block;    /* Makes the image a block element */
+  margin: 0 auto;    /* Centers the image horizontally */
+}
+
+/* Make the header look like a hero section */
+header {
+  background-color: #003366; /* Dark blue background */
+  color: white;              /* White text for contrast */
+  padding: 40px 0;           /* Space above and below content */
+  text-align: center;       /* Centers text inside the header */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  box-sizing: border-box;     /* Ensures padding is included in width */
+  margin-bottom: 35px; /* Adds space below the header */
+  width: 100%;          /* Header takes full width */
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+/* Make only the <p> text inside the header smaller */
+header p {
+  color: white; /* Makes the paragraph text in the header white */
+  font-size: 25px; /* Sets the paragraph text in the header to 25 pixels */
+  line-height: 1.1; /* Adds more space between lines of text in the header */
+  border: 2px solid rgb(37, 208, 246); /* Adds a thin white border */
+  padding: 8px;            /* Adds space between the text and the border */
+  border-radius: 4px;      /* Rounds the corners a little (optional) */
+  max-width: 900px;
+  justify-content: center; /* Centers the text */
+  margin: 0 auto; /* Centers the paragraph */
+}
+
+header h1 {
+  font-size: 50px; /* Sets the main heading text in the header to 50 pixels */
+  margin: 20px 0
+}
+
+img[src="2020.png"] {
+  width: 250px !important;   /* Forces the width to 250 pixels */
+  height: auto !important;   /* Keeps the image's aspect ratio */
+  display: block;
+  margin: 0 auto;
+}
+
+/* Album card styling */
+.card {
+  position: relative;
+  width: 320px;           /* All cards have the same width */
+  height: 250px;          /* All cards have the same height */
+  display: inline-block;   /* Makes each card stay in a row for scrolling */
+  vertical-align: top;     /* Aligns cards to the top */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;       /* Hides anything that goes outside the card */
+  /* Blue gradient background for the cards */
+  background: linear-gradient(135deg, #1976d2, #64b5f6);
+  color: white;              /* White text for good contrast */
+  border: 1px solid #ddd;
+  flex: 0 0 320px;               /* Fixed width for each card */
+  padding: 8px; /* Smaller space inside the card */
+  font-family: inherit; /* Inherit font from parent (header or body) */
+}
+
+/* Prevent cards from going off the sides of the page */
+.cards-container {
+  display: flex;                         /* Arrange cards in a row */
+  flex-direction: row;
+  gap: 16px;                             /* Space between cards */
+  overflow-x: auto;                      /* Enable horizontal scrolling */
+  max-width: calc(4 * 320px + 3 * 16px); /* Show 4 cards + 3 gaps at a time */
+  box-sizing: border-box;
+  margin: 0 auto;                        /* Center the container */
+  padding-bottom: 16px;                  /* Space for scrollbar if needed */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Make sure images fit inside the card */
+.card img {
+  width: 100%;            /* Image fills the card width (minus padding) */
+  height: 120px;          /* All images have the same height */
+  object-fit: cover;      /* Crops images to fit the box */
+  display: block;
+  margin: 0;    /* No extra margin around the image */
+}
+
+/* Center the h2 and h3 headings inside cards */
+.card h2,
+.card h3 {
+  text-align: center; /* Centers the text horizontally */
+}
+
+.card h2 {
+  font-size: 40px; /* Sets the font size for h2 headings */
+  margin-top: 10px; /* Adds space above the h2 heading */
+  margin-bottom: 5px;
+  color: #333; /* Sets a dark color for the h2 heading */
+  font-weight: bold; /* Makes the h2 heading bold */
+  
+}
+
+.card h3 {
+  text-align: center;         /* Center the heading */
+  max-height: 2.4em;          /* Allow up to 2 lines of text */
+  overflow: hidden;           /* Hide extra text that doesn't fit */
+  text-overflow: ellipsis;    /* Show "..." if text is too long */
+  white-space: normal;        /* Allow wrapping to a second line */
+  margin-bottom: 12px;        /* Space below the heading */
+  font-size: 23px;           /* Sets the font size for h3 headings */
+}
+
+
+.overlay {
+  position: absolute; /* Positioning the overlay */
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 30, 30, 0.85);
+  color: #fff;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s; /* Adds a smooth transition for the reveal */
+  display: flex; /* Centering the text */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  text-align: center; /* Center text */
+  padding: 1rem; /* Optional: padding for the overlay */
+  box-sizing: border-box;  /* Include padding in width/height */
+  pointer-events: none;
+  font-size: larger;
+}
+
+.cards-container:hover .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Center the last <p> on the page */
+.scroll p {
+  text-align: center; /* Centers the text horizontally */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 21px;
+  margin-top: 15px;
+  color: #003366; /* Dark blue color for the text */
+}
+
+
+
+/* Responsive: Stack cards vertically on small screens */
+@media (max-width: 600px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    overflow-x: visible;
+    margin: 0 auto;
+    padding: 0 4px; /* Small side padding for breathing room */
+  }
+  .card {
+    width: 100%;          /* Card takes full available width */
+    max-width: 350px;
+    margin: 0 auto 16px auto;
+    height: auto;
+    box-sizing: border-box; /* Includes padding in width */
+  }
+  header {
+    width: 100%;          /* Header takes full width */
+    box-sizing: border-box;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
+
+@media (max-width: 900px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    overflow-x: visible;
+    margin: 0 auto;
+    padding: 0 4px; /* Small side padding for breathing room */
+  }
+  .card {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto 16px auto;
+    box-sizing: border-box;
+    max-height: 270px;
+    min-height: unset;
+    padding-top: 10px;     /* Reduce top padding */
+    padding-bottom: 10px;  /* Reduce bottom padding */
+  }
+  .card img {
+    margin-bottom: 0px;   /* Less space below the image */
+  }
+  .card h3,
+  .card p {
+    margin-top: 8px;      /* Less space above text */
+    margin-bottom: 8px;   /* Less space below text */
+  }
+
+  .card h3 {
+    margin-top: 0px; /* No space above the h3 heading */
+    margin-bottom: 10px;
+  }
+  header {
+    width: 100%;          /* Header takes full width */
+    box-sizing: border-box;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
+    margin-top: 0px; /* No space above the h3 heading */
+    margin-bottom: 10px;
+  }
+  header {
+    width: 100%;          /* Header takes full width */
+    box-sizing: border-box;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
