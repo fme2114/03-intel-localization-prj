@@ -338,3 +338,68 @@ header {
   box-shadow: none;            /* No shadow */
 }
 
+/* When the page is in RTL mode, align paragraphs and headings to the right for better readability */
+html[dir="rtl"] p,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3 {
+  text-align: right;
+}
+
+/* In RTL mode, right-align only text elements in the header and 3-column section for a natural RTL layout */
+html[dir="rtl"] .shared-bg-section h1,
+html[dir="rtl"] .shared-bg-section h2,
+html[dir="rtl"] .shared-bg-section h3,
+html[dir="rtl"] .shared-bg-section p,
+html[dir="rtl"] .shared-bg-section a {
+  text-align: right;
+}
+
+/* In RTL mode, make sure the header paragraph is centered (default) */
+html[dir="rtl"] header p {
+  margin: 0 auto;
+  padding-right: 0;
+}
+
+/* In RTL mode, add side margins to all main text elements so they don't touch the edge of the page */
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] p,
+html[dir="rtl"] a {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+/* Always center .site-footer p, .subscription-section h2, and .scroll p, even in RTL mode */
+html[dir="rtl"] .site-footer p,
+html[dir="rtl"] .subscription-section h2,
+html[dir="rtl"] .scroll p {
+  text-align: center;
+}
+
+/* In RTL mode, right-align the h2 in the 3-column section and keep the icon close to the text */
+html[dir="rtl"] .shared-bg-section h2 {
+  text-align: right;
+  max-width: 100%; /* h2 cannot be wider than its column */
+  word-break: break-word; /* Long words will wrap to the next line */
+}
+html[dir="rtl"] .shared-bg-section h2 .material-symbols-outlined {
+  margin-inline-end: 0;
+  margin-inline-start: 6px; /* Space between icon and text on the right */
+}
+
+/* In RTL mode, make h2 in the 3-column section only as wide as the p below it */
+html[dir="rtl"] .shared-bg-section .col-lg-4 h2 {
+  display: inline-block; /* h2 only takes up as much space as needed */
+  max-width: 90%; /* Limit width to match p text below (adjust as needed) */
+  word-break: break-word; /* Wrap long words */
+  box-sizing: border-box; /* Includes padding in width */
+}
+
+/* In RTL mode, make the Water & Waste h2 wrap so it doesn't overflow its column */
+html[dir="rtl"] .shared-bg-section .col-lg-4:nth-child(3) h2 {
+  max-width: 170px; /* Limit width for Water & Waste heading */
+  word-break: break-word; /* Wrap long words */
+  white-space: normal; /* Allow text to wrap to a new line */
+}
+

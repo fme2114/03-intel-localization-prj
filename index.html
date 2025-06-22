@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
 
-  <!-- Bootstrap CSS for responsive layouts and components -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS for responsive layouts and components (RTL version) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.rtl.min.css" integrity="sha384-Xbg45MqvDIk1e563NLpGEulpX6AvL404DP+/iCgW9eFa2BqztiwTexswJo2jLMue" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
-  <!-- Add this line inside your <head> tag -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Material Symbols Outlined for icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
@@ -163,8 +163,8 @@
         <!-- Column 1: 3 in a row on large, 2 in a row on medium, 1 on small screens -->
         <div class="col-lg-4 col-md-6 col-12 text-center mb-4">
           <h2>
-            <!-- Strategy icon from Google Fonts -->
-            <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.3em;">strategy</span>
+            <!-- Lightbulb icon for strategy -->
+            <span class="material-symbols-outlined" translate="no" style="vertical-align: middle; font-size: 1.3em;">emoji_objects</span>
             RISE Strategy
           </h2>
           <p>
@@ -179,8 +179,8 @@
         <!-- Column 2 -->
         <div class="col-lg-4 col-md-6 col-12 text-center mb-4">
           <h2>
-            <!-- Handshake icon from Google Fonts -->
-            <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.3em;">handshake</span>
+            <!-- Handshake icon for commitment -->
+            <span class="material-symbols-outlined" translate="no" style="vertical-align: middle; font-size: 1.3em;">handshake</span>
             Commitment
           </h2>
           <p>
@@ -196,8 +196,8 @@
         <!-- Column 3 -->
         <div class="col-lg-4 col-md-6 col-12 text-center mb-4">
           <h2>
-            <!-- Humidity low icon from Google Fonts -->
-            <span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.2em;">humidity_low</span>
+            <!-- Water drop icon for water & waste -->
+            <span class="material-symbols-outlined" translate="no" style="vertical-align: middle; font-size: 1.2em;">water_drop</span>
             Water &amp; Waste
           </h2>
           <p>
@@ -232,5 +232,29 @@
   <footer class="site-footer">
     <p>&copy; 2025 Intel Sustainability Project</p>
   </footer>
+
+  <!-- JavaScript to detect Google Translate language changes and set RTL/LTR -->
+  <script>
+    // List of right-to-left language codes
+    const rtlLangs = ['ar', 'he', 'fa', 'ur'];
+
+    // Function to check and set the direction
+    function updateDirection() {
+      // Google Translate sets a cookie with the language code
+      const langMatch = document.cookie.match(/googtrans=\/auto\/(\w{2})/);
+      let lang = langMatch ? langMatch[1] : document.documentElement.lang;
+      // If the language is RTL, set dir="rtl", else set dir="ltr"
+      if (rtlLangs.includes(lang)) {
+        document.documentElement.setAttribute('dir', 'rtl');
+      } else {
+        document.documentElement.setAttribute('dir', 'ltr');
+      }
+    }
+
+    // Run on page load
+    updateDirection();
+    // Check every second for language changes (simple and beginner-friendly)
+    setInterval(updateDirection, 1000);
+  </script>
 </body>
 </html>
