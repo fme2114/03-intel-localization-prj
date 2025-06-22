@@ -403,3 +403,14 @@ html[dir="rtl"] .shared-bg-section .col-lg-4:nth-child(3) h2 {
   white-space: normal; /* Allow text to wrap to a new line */
 }
 
+
+/* In RTL mode, make all h3's in cards normal size (23px) */
+html[dir="rtl"] .card h3 {
+  font-size: 23px;
+}
+
+/* In RTL mode, make only the h3 text in the 2006 card smaller (16px) for better fit */
+html[dir="rtl"] .card-2006 h3 {
+  font-size: 17px;
+}
+
